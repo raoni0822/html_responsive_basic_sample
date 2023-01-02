@@ -61,7 +61,49 @@ $(function () {
         $(this).addClass('on');
     })
 
+    $("#bgndVideo").YTPlayer({
+        videoURL: 'https://www.youtube.com/embed/qR13PjAwHwY',
+        containment: '.mainyoutubeBg',
+        // autoPlay: true,
+        showControls: false,
+        mute: true,
+        playOnlyIfVisible: true,
+    });
 
+    $('.mainyoutubeBg .play').on('click', function () {
+        $('#bgndVideo').YTPPlay();
+    })
+    $('.mainyoutubeBg .pause').on('click', function () {
+        $('#bgndVideo').YTPPause();
+    })
+
+    $('.product_slide').slick({
+        arrows: false,
+        slidesToShow: 5,
+    })
+
+    $('.product_slide_controller>button:first-child').on('click', function () {
+        $('.product_slide').slick('slickPrev')
+    })
+    $('.product_slide_controller>button:last-child').on('click', function () {
+        $('.product_slide').slick('slickNext')
+    })
+
+
+    $('.product_slide_controller ul button').on('click', function () {
+        var idx = $(this).parent().index();
+        $('.product_slide').slick('slickGoTo', idx)
+    })
+
+    $('.mainCustomer .main_tab_menu>li button').on('click', function () {
+        var idx = $(this).parent().index();
+        $('.mainCustomer .main_tab_content>li').removeClass('on');
+        $('.mainCustomer .main_tab_content>li').eq(idx).addClass('on');
+
+        $('.mainCustomer .main_tab_menu>li').removeClass('on');
+        $(this).parent().addClass('on');
+
+    });
 
 
 

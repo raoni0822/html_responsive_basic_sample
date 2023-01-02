@@ -292,6 +292,8 @@
     transition: 0.5s;
 }
 
+
+/* {mainEvent */
 .mainEvent figure {
     text-align: center;
     border-radius: 50px 50px 0 0;
@@ -315,6 +317,9 @@
     margin: 0 0 20px 0;
 }
 
+/* mainEvent} */
+
+/* {mainBanner */
 .mainBanner {
     background: url(../img/mainvisual01.jpg) no-repeat fixed center center/cover;
     text-align: center;
@@ -333,6 +338,10 @@
     vertical-align: -2px;
 }
 
+/* mainBanner} */
+
+
+/* {mainPromotion */
 .mainPromotion .tit {
     width: auto;
     text-align: left;
@@ -369,15 +378,124 @@
     border-radius: 5px;
 }
 
-.youtube_case {
-    position: relative;
-    background: tomato;
-    padding-bottom: 56.25%;
+/* mainPromotion} */
+
+
+/* {mainYoutube */
+
+.mainYoutube .left {
+    display: flex;
+    align-items: center;
 }
 
-.youtube_case iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+.mainYoutube .tit {
+    width: auto;
+    text-align: left;
+}
 
+/* mainYoutube} */
+
+/* {mainyoutubeBg */
+.mainyoutubeBg {
+    color: #fff;
+
+    margin: 0 50px;
+    border-radius: 30px;
+    overflow: hidden;
+    transform: rotate(3deg);
+}
+
+.mainyoutubeBg .tit {
+    transform: rotate(-3deg);
+}
+
+.mainyoutubeBg i {
+    padding: 10px;
+    background: #000;
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* mainyoutubeBg} */
+
+/* {mainproduct */
+.mainproduct .product_slide {
+    margin: 0 -15px;
+}
+
+.mainproduct figure {
+    position: relative;
+    margin: 0 15px;
+}
+
+.mainproduct figure .case {
+    overflow: hidden;
+    margin: 0 0 10px 0;
+}
+
+.mainproduct figure .order_btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.mainproduct figure:hover .order_btn {
+    display: block;
+}
+
+.mainproduct .product_slide_controller {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.mainproduct .product_slide_controller ul {
+    display: flex;
+    gap: 2px;
+}
+
+.mainproduct .product_slide_controller ul button {
+    padding: 3px;
+    background: tomato;
+    border-radius: 5px;
+    color: #FFF;
+    border: none;
+    font-size: 13px;
+}
+
+/* mainproduct} */
+
+/* {mainCustomer */
+.mainCustomer .main_tab_menu {
+    display: flex;
+    gap: 1px;
+}
+
+.mainCustomer .main_tab_menu>li {
+    flex: 1;
+}
+
+.mainCustomer .main_tab_menu>li button {
+    display: block;
+    width: 100%;
+    background: #ff6347;
+    color: #fff;
+    line-height: 40px;
+    padding: 0 0 0 15px;
+}
+
+.mainCustomer .main_tab_menu>li.on button {
+    background: #333333;
+}
+
+.mainCustomer .main_tab_content>li {
+    display: none;
+}
+
+.mainCustomer .main_tab_content>li.on {
+    display: block;
 }
