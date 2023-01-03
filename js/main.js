@@ -80,6 +80,14 @@ $(function () {
     $('.product_slide').slick({
         arrows: false,
         slidesToShow: 5,
+        responsive: [
+            {
+                breakpoint: 769,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
+        ]
     })
 
     $('.product_slide_controller>button:first-child').on('click', function () {
@@ -105,8 +113,29 @@ $(function () {
 
     });
 
+    $('#f_link select').on('change', function () {
+        //console.log('change : ', $(this), $(this).val())
+        var lnk = $(this).val();
 
+        //value 값이 있으면 새창을 띄워라
+        // if (lnk) {
+        //     window.open(lnk);
+        // }
 
+        lnk && window.open(lnk);
+    })
+
+    $('.m_open').on('click', function () {
+        $('.header').toggleClass('on');
+        $('.m_btn').toggleClass('on')
+    })
+
+    $('.header').on('scroll wheel touchmove', function () {
+        if ($(this).hasClass('on')) {
+            return false;
+        }
+
+    })
 
 
 
