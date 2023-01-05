@@ -59,49 +59,53 @@ $(function () {
         // eq(0) = nth-child(1);
         $('.mainVisual .main_slide_dots li').removeClass('on');
         $(this).addClass('on');
-    })
+    });
+
 
     $("#bgndVideo").YTPlayer({
-        videoURL: 'https://www.youtube.com/embed/qR13PjAwHwY',
-        containment: '.mainyoutubeBg',
-        // autoPlay: true,
+        videoURL: 'qR13PjAwHwY',
+        containment: '.mainYoutubeBg',
         showControls: false,
         mute: true,
         playOnlyIfVisible: true,
     });
 
-    $('.mainyoutubeBg .play').on('click', function () {
-        $('#bgndVideo').YTPPlay();
-    })
-    $('.mainyoutubeBg .pause').on('click', function () {
-        $('#bgndVideo').YTPPause();
+
+    $('.mainYoutubeBg .play').on('click', function () {
+        $("#bgndVideo").YTPPlay();
     })
 
-    $('.product_slide').slick({
-        arrows: false,
+    $('.mainYoutubeBg .pause').on('click', function () {
+        $("#bgndVideo").YTPPause();
+    });
+
+
+    $('.produt_slide').slick({
         slidesToShow: 5,
+        arrows: false,
         responsive: [
             {
-                breakpoint: 769,
+                breakpoint: 768,
                 settings: {
                     slidesToShow: 1,
                 }
             }
         ]
-    })
+    });
 
-    $('.product_slide_controller>button:first-child').on('click', function () {
-        $('.product_slide').slick('slickPrev')
-    })
-    $('.product_slide_controller>button:last-child').on('click', function () {
-        $('.product_slide').slick('slickNext')
-    })
+    $('.produt_slide_controller>button:first-child').on('click', function () {
+        $('.produt_slide').slick('slickPrev')
+    });
 
+    $('.produt_slide_controller>button:last-child').on('click', function () {
+        $('.produt_slide').slick('slickNext')
+    });
 
-    $('.product_slide_controller ul button').on('click', function () {
+    $('.produt_slide_controller ul button').on('click', function () {
         var idx = $(this).parent().index();
-        $('.product_slide').slick('slickGoTo', idx)
-    })
+        $('.produt_slide').slick('slickGoTo', idx)
+    });
+
 
     $('.mainCustomer .main_tab_menu>li button').on('click', function () {
         var idx = $(this).parent().index();
@@ -110,32 +114,88 @@ $(function () {
 
         $('.mainCustomer .main_tab_menu>li').removeClass('on');
         $(this).parent().addClass('on');
-
     });
 
+
     $('#f_link select').on('change', function () {
-        //console.log('change : ', $(this), $(this).val())
         var lnk = $(this).val();
-
-        //value 값이 있으면 새창을 띄워라
-        // if (lnk) {
-        //     window.open(lnk);
-        // }
-
-        lnk && window.open(lnk);
-    })
+        //lnk && window.open(lnk);
+        if (lnk) {
+            window.open(lnk);
+        }
+    });
 
     $('.m_open').on('click', function () {
         $('.header').toggleClass('on');
-        $('.m_btn').toggleClass('on')
-    })
+        $('.m_btn').toggleClass('on');
+    });
 
     $('.header').on('scroll wheel touchmove', function () {
         if ($(this).hasClass('on')) {
             return false;
         }
+    });
 
+    // to top button
+
+
+    $(window).on('scroll', function () {
+        //스크롤량을 구함.
+        var sct = $(window).scrollTop();
+        // console.log(sct);
+        if (sct > 1000) {
+            $('.to_top').addClass('on');
+        } else {
+            $('.to_top').removeClass('on');
+        }
+
+        //fadeIn() , fadeOut(), ... 제이쿼리 애니메이션이라서 javascript, react, vue 요런데서 쓸 수 없음.
+        // if (sct > 1000) {
+        //     $('.to_top').fadeIn()
+        // } else {
+        //     $('.to_top').fadeOut()
+        // }
     })
+
+    $('.to_top').on('click', function () {
+        $('html, body').stop().animate({ scrollTop: 0 }, 600)
+    });
+
+
+    $('.header .search_toggle button').on('click', function () {
+        //$('.header .search').slideToggle();
+        $('.header .search').toggleClass('on')
+    })
+
+
+    // var mungu = [
+    //     "문구 001",
+    //     "문구 002",
+    //     "문구 003",
+    //     "문구 004",
+    //     "문구 005"
+    // ];
+    // console.log(Math.random())
+
+    // var num = Math.floor(Math.random() * mungu.length);
+
+    // $('.top_banner strong').text(mungu[num])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

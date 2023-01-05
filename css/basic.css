@@ -29,7 +29,6 @@ button {
     height: 30px;
     background: #f2f2f2;
     border-radius: 5px;
-
     border: none;
     outline: none;
 }
@@ -40,10 +39,8 @@ button {
     position: absolute;
     left: 5px;
     right: 5px;
-
     height: 1px;
     background: #444;
-
     transition: 0.5s;
 }
 
@@ -55,8 +52,7 @@ button {
     bottom: 8px;
 }
 
-
-.m_btn.on:before {
+.m_btn.on::before {
     transform: translate(-100px, 0);
     opacity: 0;
 }
@@ -73,20 +69,19 @@ button {
     top: 14px;
     left: 5px;
     right: 5px;
-
     height: 1px;
     background: #444;
-
     transition: 0.5s;
 }
 
 .m_btn.on span::before {
-    transform: rotate(-45deg);
+    transform: rotate(135deg);
 }
 
 .m_btn.on span::after {
-    transform: rotate(45deg);
+    transform: rotate(-135deg);
 }
+
 
 
 
@@ -110,6 +105,7 @@ button {
         padding: 0 15px;
     }
 }
+
 
 .flex_inner {
     display: flex;
@@ -136,7 +132,7 @@ button {
 
 @media (max-width: 768px) {
     .mbr {
-        display: inline-block;
+        display: block;
     }
 }
 
@@ -201,7 +197,6 @@ button {
     padding: 0 20px 0 0;
 }
 
-/* 동영상,지도 같은거 iframe 반응형으로 16:9로 나타낼 때 쓰는 거 */
 .youtube_case {
     position: relative;
     background: tomato;
@@ -215,22 +210,53 @@ button {
 
     width: 100%;
     height: 100%;
-
 }
 
-.responsive_case {
+.resposive_case {
     position: relative;
     background: tomato;
-    padding-bottom: 56.25%;
-    z-index: 0;
+    padding-bottom: calc(56.25% + 3px);
 }
 
-.responsive_case>div {
+.resposive_case>div {
     position: absolute;
     top: 0;
     left: 0;
 
     width: 100%;
     height: 100%;
+}
 
+.to_top {
+    position: fixed;
+    bottom: 100px;
+    right: 100px;
+
+    z-index: 9999;
+}
+
+.to_top button {
+    border: none;
+    outline: none;
+}
+
+.to_top i {
+    background: #ff6347;
+    color: #fff;
+    font-size: 30px;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .to_top {
+        bottom: 0;
+        right: 0;
+    }
+
+    .to_top i {
+        background: #ff6347;
+        color: #fff;
+        font-size: 5vw;
+        padding: 5px;
+    }
 }
